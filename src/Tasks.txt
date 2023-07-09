@@ -1,0 +1,3 @@
+* Sort data on clicking every column
+* Change sort order when a column already sorted
+* Filter data based on a text entered by user

@@ -1,8 +1,10 @@
 import "./App.css";
 import { useEffect, useState } from "react";
+import HeaderRow from "./components/HeaderRow";
+import TableRow from "./components/TableRow";
 
 function App() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState();
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -10,27 +12,15 @@ function App() {
       .then((c) => setData(c));
   }, []);
 
+  if (!data) return "Loading...";
+  
   return (
     <div className="App">
       <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Category</th>
-            <th></th>
-          </tr>
-        </thead>
+        <HeaderRow />
         <tbody>
-          {data.map(({ id, title, price, category, image }) => (
-            <tr key={id}>
-              <td>{title}</td>
-              <td>{price}</td>
-              <td>{category}</td>
-              <td>
-                <img alt={title} style={{ height: "50px" }} src={image} />
-              </td>
-            </tr>
+          {data.map((item) => (
+            <TableRow {...item} />
           ))}
         </tbody>
       </table>
