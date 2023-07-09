@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      <table style={{ borderCollapse: "collapse" }}>
+      <table>
         <thead>
           <tr>
             <th>Title</th>
