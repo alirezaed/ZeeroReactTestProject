@@ -20,7 +20,7 @@ function App() {
         <HeaderRow />
         <tbody>
           {data.map((item) => (
-            <TableRow {...item} />
+            <TableRow key={item.id} {...item} />
           ))}
         </tbody>
       </table>
